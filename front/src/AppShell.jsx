@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "./components/Header"
+import Header from "./components/Header";
+import Main from "./pages/Main";
+import Login from "./pages/Login";
+import {Routes, Route} from "react-router-dom";
 
 const Whole = styled.section`
     width: 100%;
@@ -16,6 +19,12 @@ const AppHeader = styled.header`
 
 const AppMain =  styled.main`
     width: 1350px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
 `;
 
 const AppFooter = styled.footer`
@@ -28,7 +37,10 @@ const AppShell = () => {
             <AppHeader><Header/></AppHeader>
 
             <AppMain>
-                {/* {계속 바껴야 함} */}
+                <Routes>
+                    <Route path="/" element={<Main />}></Route>
+                    <Route path="/login" element={<Login />}></Route>                               
+                </Routes>
             </AppMain>
 
             <AppFooter></AppFooter>
